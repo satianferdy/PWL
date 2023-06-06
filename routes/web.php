@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactUs;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::prefix('/')->group(function () {
     Route::get('/program', function () {
         return view('master.program');
     })->name('program');
+
+    // Route::resource('/user', UserController::class);
 });
 
 Route::get('/news/{id}', function ($id) {
@@ -38,6 +41,7 @@ Route::get('/about-us', function () {
 
 
 Route::resource('/contact-us', ContactUs::class)->only(['index']);
+Route::resource('/user', UserController::class)->only(['index']);
 // Route::resource('about-us', 'aboutUs');
 // Route::resource('contact-us', 'ContactUs');
 
