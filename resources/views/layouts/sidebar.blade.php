@@ -11,15 +11,13 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                    <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+                    <li><a class="nav-link" href="{{ route('user.index') }}">User - List</a></li>
+                    {{-- <li><a class="nav-link" href="{{ route('about-us') }}">about-us</a></li>
+                    <li><a class="nav-link" href="{{ route('contact-us') }}">contact-us</a></li>
+                    <li><a class="nav-link" href="{{ route('news') }}">news</a></li> --}}
+
                 </ul>
             </li>
         @show
     </ul>
-    <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-        <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-            <i class="fas fa-rocket"></i> Documentation
-        </a>
-    </div>
 </aside>
