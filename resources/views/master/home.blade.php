@@ -8,7 +8,22 @@
             <h1>Homepage</h1>
         </div>
 
-        <div class="section-body"></div>
+        <div class="section-body">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Acount</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ Auth::user()->name }}</li>
+                        <li class="list-group-item">{{ Auth::user()->username }}</li>
+                        <li class="list-group-item">{{ Auth::user()->email }}</li>
+                        <li class="list-group-item">{{ Auth::user()->created_at }}</li>
+                        {{-- <li class="list-group-item">Vestibulum at eros</li> --}}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection
 

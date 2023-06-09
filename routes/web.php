@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// route login
 Route::get('/', function () {
-    // return view('welcome');
-    return view('master.home');
+    return view('auth.login');
+});
+
+// route middleware auth
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', function () {
+        return view('master.home');
+    })->name('home');
 });
 
 
