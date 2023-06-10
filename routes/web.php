@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ContactUs;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,8 @@ Route::get('/', function () {
     return view('master.home');
 });
 
+// Route::get('/add', function () {
+//     return view('mahasiswa.create');
+// });
 
+Route::resource('/mahasiswa', MahasiswaController::class);
