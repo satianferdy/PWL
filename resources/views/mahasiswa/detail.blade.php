@@ -41,18 +41,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Birthdate</label>
-                                <div class="col-sm-9">
-                                    <div class="form-control">
-                                        {{ $mahasiswa->tanggal_lahir }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" for="kelas">Class</label>
                                 <div class="col-sm-9">
                                     <div name="kelas" type="text" class="form-control">
-                                        {{ $mahasiswa->kelas }}
+                                        {{ $mahasiswa->kelas->nama_kelas }}
                                     </div>
                                 </div>
                             </div>

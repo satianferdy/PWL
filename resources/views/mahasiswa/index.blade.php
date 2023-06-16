@@ -44,32 +44,28 @@
                                         {{-- <th>No</th> --}}
                                         <th>Nim</th>
                                         <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Tanggal Lahir</th>
                                         <th>Kelas</th>
+                                        <th>Email</th>
                                         <th>Jurusan</th>
-                                        <th>Phone</th>
                                         <th>Action</th>
                                     </tr>
-                                    @forelse ($mahasiswas as $index => $mahasiswa)
+                                    @forelse ($mahasiswa as $mhs)
                                         <tr>
                                             {{-- <td>
                                                 {{ $index + $mahasiswas->firstItem() }}
                                             </td> --}}
-                                            <td>{{ $mahasiswa->nim }}</td>
-                                            <td>{{ $mahasiswa->nama }}</td>
-                                            <td>{{ $mahasiswa->email }}</td>
-                                            <td>{{ $mahasiswa->tanggal_lahir }}</td>
-                                            <td>{{ $mahasiswa->kelas }}</td>
-                                            <td>{{ $mahasiswa->jurusan }}</td>
-                                            <td>{{ $mahasiswa->no_handphone }}</td>
+                                            <td>{{ $mhs->nim }}</td>
+                                            <td>{{ $mhs->nama }}</td>
+                                            <td>{{ $mhs->kelas->nama_kelas }}</td>
+                                            <td>{{ $mhs->email }}</td>
+                                            <td>{{ $mhs->jurusan }}</td>
                                             <td>
-                                                <a href="{{ route('mahasiswa.show', $mahasiswa->id) }}"
+                                                <a href="{{ route('mahasiswa.show', $mhs->nim) }}"
                                                     class="btn btn-sm btn-primary">Detail</a>
-                                                <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}"
+                                                <a href="{{ route('mahasiswa.edit', $mhs->nim) }}"
                                                     class="btn btn-sm btn-warning">Edit</a>
-                                                <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}"
-                                                    method="POST" style="display: inline-block">
+                                                <form action="{{ route('mahasiswa.destroy', $mhs->nim) }}" method="POST"
+                                                    style="display: inline-block">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-sm btn-danger"
@@ -87,7 +83,7 @@
                             <div class="float-right">
                                 <nav>
                                     <ul class="pagination">
-                                        {{ $mahasiswas->withQueryString()->links() }}
+                                        {{ $mahasiswa->links() }}
                                     </ul>
                                 </nav>
                             </div>

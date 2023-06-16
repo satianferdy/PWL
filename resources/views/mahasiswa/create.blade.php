@@ -47,12 +47,22 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" for="kelas">Class</label>
+                                <label class="col-sm-3 col-form-label" for="email">Email</label>
                                 <div class="col-sm-9">
-                                    <input name="kelas" type="text" class="form-control">
-                                    <div class="valid-feedback">
-                                        What's your class?
+                                    <input name="email" type="email" class="form-control">
+                                    <div class="invalid-feedback">
+                                        What's your email?
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form" for="kelas_id">Kelas</label>
+                                <div class="col-sm-9">
+                                    <select name="kelas_id" id="kelas_id" class="form-control">
+                                        @foreach ($kelas as $kelas)
+                                            <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
