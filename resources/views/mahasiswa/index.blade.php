@@ -45,7 +45,7 @@
                                         <th>Nim</th>
                                         <th>Name</th>
                                         <th>Kelas</th>
-                                        <th>Email</th>
+                                        <th>Foto</th>
                                         <th>Jurusan</th>
                                         <th>Action</th>
                                     </tr>
@@ -57,7 +57,7 @@
                                             <td>{{ $mhs->nim }}</td>
                                             <td>{{ $mhs->nama }}</td>
                                             <td>{{ $mhs->kelas->nama_kelas }}</td>
-                                            <td>{{ $mhs->email }}</td>
+                                            <td>{{ $mhs->image }}</td>
                                             <td>{{ $mhs->jurusan }}</td>
                                             <td>
                                                 <a href="{{ route('mahasiswa.show', $mhs->nim) }}"

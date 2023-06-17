@@ -56,18 +56,14 @@ class MahasiswaController extends Controller
             'no_handphone' => 'required',
         ]);
 
-        // $mahasiswa = new Mahasiswa;
-        // $mahasiswa->nim = $request->get('nim');
-        // $mahasiswa->nama = $request->get('nama');
-        // $mahasiswa->jurusan = $request->get('jurusan');
-        // $mahasiswa->no_handphone = $request->get('no_handphone');
-        // $mahasiswa->save();
+        $mahasiswa = new Mahasiswa;
 
-        // $kelas = new Kelas;
-        // $kelas->id = $request->get('kelas');
-
-        // $mahasiswa->kelas()->associate($kelas);
-        // $mahasiswa->save();
+        //upload image
+        if ($request->file('image')) {
+            $image_name = $request->file('image')->store('images', 'public');
+            $mahasiswa->image = $image_name;
+        }
+        $mahasiswa->save();
 
         Mahasiswa::create($request->all());
 
@@ -123,6 +119,17 @@ class MahasiswaController extends Controller
         ]);
 
         Mahasiswa::find($nim)->update($request->all());
+
+        $mahasiswa = Mahasiswa::with('kelas')->where('nim', $nim)->first();
+
+        // edit image
+        if ($mahasiswa->image && file_exists(storage_path('app/public/' . $mahasiswa->image))) {
+            \Storage::delete('public/' . $mahasiswa->image);
+        }
+        $image_name = $request->file('image')->store('images', 'public');
+        $mahasiswa->image = $image_name;
+
+        $mahasiswa->save();
 
         return redirect()->route('mahasiswa.index')
             ->with('success', 'Mahasiswa updated successfully');

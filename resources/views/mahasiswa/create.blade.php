@@ -22,7 +22,8 @@
                             </ul>
                         </div>
                     @endif
-                    <form class="needs-validation" action="{{ route('mahasiswa.store') }}" method="POST">
+                    <form class="needs-validation" action="{{ route('mahasiswa.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="card-header">
                             <h4>Add Data Mahasiswa</h4>
@@ -43,6 +44,15 @@
                                     <input name="nama" type="text" class="form-control" required="">
                                     <div class="invalid-feedback">
                                         What's your name?
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" for="image">Foto</label>
+                                <div class="col-sm-9">
+                                    <input name="image" type="file" class="form-control">
+                                    <div class="invalid-feedback">
+                                        What's your image?
                                     </div>
                                 </div>
                             </div>
