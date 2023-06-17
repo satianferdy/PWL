@@ -73,6 +73,9 @@
                                         </tr>
                                     @endforeach
                                 </table>
+                                <a href="{{ route('mahasiswa.cetak_pdf', $mahasiswa->nim) }}"
+                                    class="btn btn-danger float-right">Cetak
+                                    PDF</a>
                                 <a href="{{ route('mahasiswa.index') }}" class="btn btn-primary">Kembali</a>
                             </div>
                         </div>

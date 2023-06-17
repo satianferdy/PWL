@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             KelasSeeder::class,
             MahasiswaSeeder::class,
             MataKuliahSeeder::class,
-            UpdateMahasiswaSeeder::class,
             MahasiswaMataKuliahSeeder::class,
         ]);
 

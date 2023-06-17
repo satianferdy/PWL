@@ -66,11 +66,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form" for="kelas_id">Kelas</label>
+                                <label class="col-sm-3 col-form" for="kelas">Kelas</label>
                                 <div class="col-sm-9">
-                                    <select name="kelas_id" id="kelas_id" class="form-control">
-                                        @foreach ($kelas as $kelas)
-                                            <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                                    <select name="kelas" id="kelas" class="form-control">
+                                        @foreach ($kelas as $kls)
+                                            <option value="{{ $kls->id }}">{{ $kls->nama_kelas }}</option>
                                         @endforeach
                                     </select>
                                 </div>

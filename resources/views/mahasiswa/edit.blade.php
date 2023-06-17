@@ -23,7 +23,7 @@
                         </div>
                     @endif
                     <form class="needs-validation" action="{{ route('mahasiswa.update', $mahasiswa->nim) }}" id="myForm"
-                        method="POST">
+                        method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card-header">
@@ -51,6 +51,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" for="image">Foto</label>
+                                <div class="col-sm-9">
+                                    <input name="image" type="file" class="form-control"
+                                        value="{{ $mahasiswa->image }}" required="">
+                                    <div class="invalid-feedback">
+                                        What's your email?
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" for="email">Email</label>
                                 <div class="col-sm-9">
                                     <input name="email" type="text" class="form-control"
@@ -61,13 +71,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" for="kelas_id">Class</label>
+                                <label class="col-sm-3 col-form-label" for="kelas">Class</label>
                                 <div class="col-sm-9">
-                                    <select name="kelas_id" id="kelas_id" class="form-control">
-                                        @foreach ($kelas as $kelas)
-                                            <option value="{{ $kelas->id }}"
-                                                {{ $mahasiswa->kelas_id == $kelas->id ? 'selected' : '' }}>
-                                                {{ $kelas->nama_kelas }}</option>
+                                    <select name="kelas" id="kelas" class="form-control">
+                                        @foreach ($kelas as $kls)
+                                            <option value="{{ $kls->id }}"
+                                                {{ $mahasiswa->kelas_id == $kls->id ? 'selected' : '' }}>
+                                                {{ $kls->nama_kelas }}</option>
                                         @endforeach
                                     </select>
                                 </div>

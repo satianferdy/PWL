@@ -57,7 +57,7 @@
                                             <td>{{ $mhs->nim }}</td>
                                             <td>{{ $mhs->nama }}</td>
                                             <td>{{ $mhs->kelas->nama_kelas }}</td>
-                                            <td>{{ $mhs->image }}</td>
+                                            <td><img width="100px" src="{{ asset('storage/' . $mhs->image) }}"></td>
                                             <td>{{ $mhs->jurusan }}</td>
                                             <td>
                                                 <a href="{{ route('mahasiswa.show', $mhs->nim) }}"

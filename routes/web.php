@@ -29,3 +29,4 @@ use App\Http\Controllers\MahasiswaController;
 Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
 Route::resource('mahasiswa', MahasiswaController::class);
 Route::get('/mahasiswa/detail/{Nim}', [MahasiswaController::class, 'showNilai'])->name('mahasiswa.showNilai');
+Route::get('/mahasiswa/{nim}/cetak_pdf',[MahasiswaController::class,'cetak_pdf'])->name('mahasiswa.cetak_pdf');

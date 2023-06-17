@@ -11,6 +11,8 @@ class Kelas extends Model
 {
     use HasFactory;
     protected $table='kelas';
+    protected $guarded = ['id']; //membuat semua atribut fillable pada mass assignment
+
 
     public function mahasiswa()
     {
