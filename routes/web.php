@@ -15,13 +15,17 @@ use App\Http\Controllers\MahasiswaController;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('master.home');
-});
-
-// Route::get('/add', function () {
-//     return view('mahasiswa.create');
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('master.home');
 // });
 
-Route::resource('/mahasiswa', MahasiswaController::class);
+// // Route::get('/add', function () {
+// //     return view('mahasiswa.create');
+// // });
+
+// Route::resource('/mahasiswa', MahasiswaController::class);
+
+Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::resource('mahasiswa', MahasiswaController::class);
+Route::get('/mahasiswa/detail/{Nim}', [MahasiswaController::class, 'showNilai'])->name('mahasiswa.showNilai');

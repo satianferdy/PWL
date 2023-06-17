@@ -71,6 +71,8 @@
                                                     <button class="btn btn-sm btn-danger"
                                                         onclick="return confirm('Are you sure?')">Delete</button>
                                                 </form>
+                                                <a class="btn btn-info btn-sm"
+                                                    href="{{ route('mahasiswa.showNilai', $mhs->nim) }}">Nilai</a>
                                             </td>
                                         </tr>
                                     @empty

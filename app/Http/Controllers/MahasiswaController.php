@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\Mahasiswa_MataKuliah;
 
 
 class MahasiswaController extends Controller
@@ -24,7 +25,7 @@ class MahasiswaController extends Controller
             ->paginate(10);
         } else {
             $mahasiswa = Mahasiswa::with('kelas')->get();
-            $mahasiswa = Mahasiswa::orderBy('id', 'desc')->paginate(10);
+            $mahasiswa = Mahasiswa::orderBy('id', 'asc')->paginate(10);
         }
 
         return view('mahasiswa.index', ['mahasiswa' => $mahasiswa]);
@@ -82,6 +83,16 @@ class MahasiswaController extends Controller
         //
         $mahasiswa = Mahasiswa::find($nim);
         return view('mahasiswa.detail', compact('mahasiswa'));
+    }
+
+    public function showNilai(string $nim)
+    {
+        // menampilkan detail mahasiswa berdasarkan nim
+        $mahasiswa = Mahasiswa::with('matakuliah')
+            ->where('nim', $nim)
+            ->first();
+
+        return view('mahasiswa.nilai', compact('mahasiswa'));
     }
 
     /**
