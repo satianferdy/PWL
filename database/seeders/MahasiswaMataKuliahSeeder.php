@@ -16,7 +16,9 @@ class MahasiswaMataKuliahSeeder extends Seeder
     public function run(): void
     {
         //
-        // MahasiswaMataKuliah::factory(10)->create();
+
+        // Mahasiswa_MataKuliah::factory(10)->create();
+
         Mahasiswa_MataKuliah::create([
             'mahasiswa_id' => '1',
             'matakuliah_id' => '1',
@@ -39,6 +41,54 @@ class MahasiswaMataKuliahSeeder extends Seeder
             'mahasiswa_id' => '2',
             'matakuliah_id' => '1',
             'nilai' => 'E',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '2',
+            'matakuliah_id' => '2',
+            'nilai' => 'E',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '2',
+            'matakuliah_id' => '3',
+            'nilai' => 'B',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '3',
+            'matakuliah_id' => '1',
+            'nilai' => 'A',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '3',
+            'matakuliah_id' => '2',
+            'nilai' => 'A',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '3',
+            'matakuliah_id' => '3',
+            'nilai' => 'A',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '4',
+            'matakuliah_id' => '1',
+            'nilai' => 'B',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '4',
+            'matakuliah_id' => '2',
+            'nilai' => 'B',
+        ]);
+
+        Mahasiswa_MataKuliah::create([
+            'mahasiswa_id' => '4',
+            'matakuliah_id' => '3',
+            'nilai' => 'B',
         ]);
 
 

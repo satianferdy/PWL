@@ -18,10 +18,12 @@ return new class extends Migration
             $table->unsignedBigInteger('matakuliah_id')->nullable(); //menyimpan id dari tabel matakuliah
             $table->foreign('mahasiswa_id')
             ->references('id')
-            ->on('mahasiswas'); //menambahkan foreign key pada kolom mahasiswa_id
+            ->on('mahasiswas')
+            ->onDelete('cascade'); //menambahkan foreign key pada kolom mahasiswa_id
             $table->foreign('matakuliah_id')
             ->references('id')
-            ->on('matakuliah'); //menambahkan foreign key pada kolom matakuliah_id
+            ->on('matakuliah')
+            ->onDelete('cascade'); //menambahkan foreign key pada kolom matakuliah_id
             $table->enum('nilai', ['A', 'B', 'C', 'D', 'E'])->nullable(); //menambahkan kolom nilai dengan tipe enum
             $table->timestamps();
         });

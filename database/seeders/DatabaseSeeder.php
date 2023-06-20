@@ -5,6 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Mahasiswa;
+use App\Models\MataKuliah;
+use App\Models\Mahasiswa_MataKuliah;
+use App\Models\Kelas;
 
 class DatabaseSeeder extends Seeder
 {

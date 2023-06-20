@@ -89,11 +89,13 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($nim)
+    public function show(string $nim)
     {
         //
-        $mahasiswa = Mahasiswa::find($nim);
-        return view('mahasiswa.detail', compact('mahasiswa'));
+        $mahasiswa = Mahasiswa::with('kelas')
+        ->where('nim', $nim)
+        ->first();
+        return view('mahasiswa.detail', ['mahasiswa' => $mahasiswa]);
     }
 
     public function showNilai(string $nim)
@@ -164,10 +166,11 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($nim)
+    public function destroy(string $nim)
     {
         //
-        $mahasiswa = Mahasiswa::find($nim)->delete();
+        $mahasiswa = Mahasiswa::with('kelas')->where('nim', $nim)->first();
+        $mahasiswa->delete();
 
         return redirect()->route('mahasiswa.index')
             ->with('success', 'Mahasiswa deleted successfully');
